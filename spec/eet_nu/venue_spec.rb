@@ -27,6 +27,15 @@ describe EetNu::Venue do
     end
   end
   
+  describe '.nearby' do
+    use_vcr_cassette
+    
+    it 'finds nearby venues' do
+      results = EetNu::Venue.nearby(50.8461267, 5.6996659)
+      results[0].name.should include 'Beluga'
+    end
+  end
+  
   describe '#initialize' do
     it "sets the venue's attributes" do
       venue = EetNu::Venue.new name: 'i76'

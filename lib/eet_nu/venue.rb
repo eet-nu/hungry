@@ -23,6 +23,13 @@ module EetNu
       Venue.new(response) if response.code == 200
     end
     
+    def self.nearby(latitude, longitude)
+      response = get "/venues/nearby?lat=#{latitude}&lng=#{longitude}"
+      response.map do |attributes|
+        Venue.new(attributes)
+      end
+    end
+    
     def initialize(attributes = {})
       MAPPING.each do |from, to|
         if value = attributes.delete(from)
