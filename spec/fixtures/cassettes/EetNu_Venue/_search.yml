@@ -1,0 +1,43 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.eet.nu:80/api/venues/search?query=beluga
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Mon, 09 Jan 2012 19:24:52 GMT
+      content-type:
+      - application/json; charset=utf-8
+      status:
+      - 200 OK
+      cache-control:
+      - public, max-age=0
+      x-ua-compatible:
+      - IE=Edge,chrome=1
+      etag:
+      - ! '"501a1477b6ea4fe887d1ffc098a431c4"'
+      x-runtime:
+      - '0.029295'
+      x-content-digest:
+      - caa7487cb9deabd024e8afd554e9cbfa9bab1265
+      content-length:
+      - '1185'
+      age:
+      - '0'
+      x-rack-cache:
+      - miss, store
+    body: ! '[{"id":1088,"relevance":11.725586,"slug":"beluga","url":"/maastricht/beluga","name":"Beluga","main_kitchen":"Frans","image_count":0,"menu_count":0,"ratings":{"average":94,"food":96,"ambiance":94,"service":95,"value":91},"location":{"lat":"50.8461267","lng":"5.6996659"},"address":{"street":"Plein
+      1992 12","zip":"6221 JP","city":"Maastricht","country":"the-netherlands"}},{"id":30712,"relevance":7.328491,"slug":"beluga-beachclub","url":"/maastricht/beluga-beachclub","name":"Beluga
+      Beachclub","main_kitchen":"Internationaal","image_count":0,"menu_count":0,"ratings":{"average":null,"food":null,"ambiance":null,"service":null,"value":null},"location":{"lat":"50.8557647","lng":"5.6986347"},"address":{"street":"De
+      Griend","zip":"6221 AJ","city":"Maastricht","country":"the-netherlands"}},{"id":977,"relevance":5.862793,"slug":"beluga-nxt-door","url":"/maastricht/beluga-nxt-door","name":"Beluga
+      Nxt Door","main_kitchen":"Frans","image_count":0,"menu_count":0,"ratings":{"average":64,"food":70,"ambiance":69,"service":64,"value":56},"location":{"lat":"50.8469397","lng":"5.6927505"},"address":{"street":"Koestraat  2-6","zip":"6211
+      HR","city":"Maastricht","country":"the-netherlands"}}]'
+    http_version: '1.1'

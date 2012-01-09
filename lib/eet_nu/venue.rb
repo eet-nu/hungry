@@ -23,6 +23,14 @@ module EetNu
       Venue.new(response) if response.code == 200
     end
     
+    def self.search(query)
+      response = get "/venues/search?query=#{query}"
+      response.map do |attributes|
+        Venue.new(attributes)
+      end
+      
+    end
+    
     def self.nearby(latitude, longitude)
       response = get "/venues/nearby?lat=#{latitude}&lng=#{longitude}"
       response.map do |attributes|
