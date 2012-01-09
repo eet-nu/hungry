@@ -15,7 +15,7 @@ module EetNu
                   :accessibility, :opening_hours, :images, :menus, :distance,
                   :maintainer_ids, :reviews_count, :image_count, :menu_count
     
-    base_uri 'www.eet.nu/api'
+    base_uri EetNu::API_URL
     
     def self.find(id)
       response = get "/venues/#{id}"
