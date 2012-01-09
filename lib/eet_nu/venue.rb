@@ -62,5 +62,12 @@ module EetNu
         send("#{key}=", value) if respond_to?("#{key}=")
       end
     end
+    
+    def reviews
+      response = self.class.get "/venues/#{id}/reviews"
+      response.map do |attributes|
+        Review.new(attributes)
+      end
+    end
   end
 end

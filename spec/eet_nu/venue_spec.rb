@@ -101,4 +101,15 @@ describe EetNu::Venue do
       venue.awards.should == { michelin_stars: 2 }
     end
   end
+  
+  describe '#reviews' do
+    use_vcr_cassette
+    
+    let(:venue) { EetNu::Venue.find 21719 }
+    
+    it "finds the venue's reviews" do
+      venue.reviews.size.should >= 10
+      venue.reviews.first.should be_a EetNu::Review
+    end
+  end
 end
