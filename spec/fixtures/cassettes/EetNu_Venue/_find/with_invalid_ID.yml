@@ -1,0 +1,28 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.eet.nu:80/api/venues/1099511627776
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: Not Found
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Mon, 09 Jan 2012 18:47:36 GMT
+      content-type:
+      - text/html; charset=utf-8
+      status:
+      - 404 Not Found
+      content-length:
+      - '0'
+      x-runtime:
+      - '0.019695'
+      x-rack-cache:
+      - miss
+    body: 
+    http_version: '1.1'

@@ -16,7 +16,10 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split('\n').map{ |f| File.basename(f) }
   s.require_paths = ['lib']
   
-  # specify any dependencies here; for example:
+  # specify any dependencies here:
+  s.add_dependency 'httparty'
+  
+  # specify any development dependencies here:
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'fakeweb'
