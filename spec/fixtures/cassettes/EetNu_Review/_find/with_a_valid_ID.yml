@@ -1,0 +1,41 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.eet.nu:80/api/reviews/54863
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Mon, 09 Jan 2012 20:00:40 GMT
+      content-type:
+      - application/json; charset=utf-8
+      status:
+      - 200 OK
+      cache-control:
+      - public, max-age=0
+      x-ua-compatible:
+      - IE=Edge,chrome=1
+      etag:
+      - ! '"971c95c9b17c1c3a5282297e5b52dd06"'
+      x-runtime:
+      - '0.020845'
+      x-content-digest:
+      - 6da3fdb2d2dc9119dbba3d0436de322839155b5a
+      content-length:
+      - '1872'
+      age:
+      - '0'
+      x-rack-cache:
+      - miss, store
+    body: ! '{"id":54863,"body":"Ik ben het helemaal met Jos eens over de vriendelijkheid
+      van het personeel. Verder is het eten wel gewoon lekker.","created_at":"2007-09-05T15:12:36Z","ratings":{"food":80,"ambiance":60,"service":40,"value":60,"average":66},"venue":{"abbreviated_name":"","ambiance_rating":71,"average_price":null,"average_rating":79,"bib_gourmand":false,"book_online":false,"buffet_price":null,"cafetaria_top100_position":null,"capacity":null,"checked_at":"2008-11-28T16:27:39Z","chef":"","city_name":"Heerlen","closed":false,"contact_name":null,"created_at":"2009-01-27T08:54:22Z","description":"","disable_reservations":false,"email":"","facebook":"https://www.facebook.com/pages/Subway-Nederland/170823509608868","fax":"0031455742358","food_rating":85,"group_capacity":null,"host":"","hyves":"","id":21719,"kvk":"","lat":"50.8894997","lekker_top100_position":null,"lng":"5.9767199","main_kitchen_id":58,"menus_count":0,"michelin_stars":null,"name":"Subway","neighbourhood_name":null,"online_discount_venue_count":0,"order_online":false,"owner":"","parking":"","plan":1,"price_3_dishes":null,"price_4_dishes":null,"price_5_dishes":null,"price_6_dishes":null,"price_high_tea":null,"public_transportation":"","registration":false,"remarks":"","sector_id":2,"sequel_id":null,"service_rating":79,"slug":"subway","sommelier":"","street":"Saroleastraat
+      61","tagline":null,"telephone":"045-5719322","twitter":"subwaynederland","updated_at":"2011-11-13T03:12:03Z","url":"http://www.subway.nl","user_id":null,"value_rating":74,"visible":true,"visible_images_count":0,"visible_reviews_count":20,"zipcode":"6411
+      LS"},"author":{"id":1,"name":"Tom-Eric","avatar_url":"http://assets.eet.nu.s3.amazonaws.com/avatars/1/ik-small.png?1320445543"},"date":1189005156,"author_name":"Tom-Eric","author_avatar_url":"http://assets.eet.nu.s3.amazonaws.com/avatars/1/ik-small.png?1320445543"}'
+    http_version: '1.1'
