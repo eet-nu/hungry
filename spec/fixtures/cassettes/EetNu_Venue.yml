@@ -1,0 +1,41 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://www.eet.nu:80/api/venues/31335
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Mon, 09 Jan 2012 19:37:46 GMT
+      content-type:
+      - application/json; charset=utf-8
+      status:
+      - 200 OK
+      cache-control:
+      - public, max-age=0
+      x-ua-compatible:
+      - IE=Edge,chrome=1
+      etag:
+      - ! '"1082bf89e193111c364dc3d375831172"'
+      x-runtime:
+      - '0.027949'
+      x-content-digest:
+      - 0756ed23766b37350aeb5f7f044414600147aae9
+      content-length:
+      - '1538'
+      age:
+      - '0'
+      x-rack-cache:
+      - stale, valid, store
+    body: ! '{"id":31335,"name":"i76","main_kitchen":"Afrikaans","reviews_count":0,"image_count":0,"menu_count":0,"address":{"street":"Brugstraat
+      77","zip":"6131AC","city":"Sittard","country":"the-netherlands"},"ratings":{},"location":{"lat":50.9985099,"lng":5.857652},"kitchens":[{"id":66,"name":"african","title":"Afrikaans"}],"tags":[{"name":"accessibility","title":"Toegankelijkheid","tags":[{"id":7,"name":"accessible","title":"Rolstoeltoegang"}]},{"name":"ambiances","title":"Ambiance","tags":[{"id":36,"name":"hip","title":"Hip"},{"id":38,"name":"cosy","title":"Gezellig"},{"id":34,"name":"formal","title":"Zakelijk"}]},{"name":"children","title":"Kinderen","tags":[{"id":10,"name":"child-entertainment","title":"Vermaak"}]},{"name":"diets","title":"Di\u00ebten","tags":[{"id":40,"name":"vegetarian","title":"Vegetarisch"}]},{"name":"environments","title":"Omgeving","tags":[{"id":27,"name":"town-centre","title":"In
+      het centrum"}]},{"name":"facilities","title":"Faciliteiten","tags":[{"id":20,"name":"wifi","title":"Wi-Fi"},{"id":21,"name":"allows-dogs","title":"Honden
+      toegestaan"}]}],"pro_ratings":{},"maintainer_ids":[57213],"staff":{},"prices":{"high_tea":19.95,"buffet":19.95},"capacity":{},"accessiblity":{},"image_urls":[],"opening_hours":{"lunch":[],"dinner":[{"name":"dinsdag","open":"gesloten"},{"name":"woensdag","open":"gesloten"},{"name":"donderdag","open":"gesloten"},{"name":"vrijdag","open":"gesloten"},{"name":"zaterdag","open":"gesloten"},{"name":"zondag","open":"gesloten"},{"name":"maandag","open":"gesloten"}]},"menus":[]}'
+    http_version: '1.1'

@@ -12,7 +12,7 @@ module EetNu
     
     attr_accessor :id, :name, :address, :location, :tags, :ratings, :awards,
                   :main_kitchen, :kitchens, :staff, :prices, :capacity,
-                  :accessibility, :opening_hours, :images, :menus, 
+                  :accessibility, :opening_hours, :images, :menus, :distance,
                   :maintainer_ids, :reviews_count, :image_count, :menu_count
     
     base_uri 'www.eet.nu/api'
@@ -23,8 +23,21 @@ module EetNu
       Venue.new(response) if response.code == 200
     end
     
-    def self.search(query)
-      response = get "/venues/search?query=#{query}"
+    def self.search(query, options = {})
+      uri = "/venues/search?query=#{query}"
+      
+      if options[:order] == 'distance'
+        raise LocationNotGiven unless options[:location] && options[:location].size == 2
+        lat, lng = options[:location]
+        
+        uri += "&lat=#{lat}&lng=#{lng}"
+      end
+      
+      if options[:order]
+        uri += "&order_by=#{options[:order]}"
+      end
+      
+      response = get uri
       response.map do |attributes|
         Venue.new(attributes)
       end
