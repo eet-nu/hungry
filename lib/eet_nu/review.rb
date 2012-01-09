@@ -15,6 +15,14 @@ module EetNu
       Review.new(response) if response.code == 200
     end
     
+    # Return the 25 latest reviews
+    def self.latest
+      response = get "/reviews"
+      response.map do |attributes|
+        Review.new(attributes)
+      end
+    end
+    
     def initialize(attributes = {})
       attributes.each do |key, value|
         send("#{key}=", value) if respond_to?("#{key}=")

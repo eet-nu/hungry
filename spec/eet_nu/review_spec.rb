@@ -27,6 +27,14 @@ describe EetNu::Review do
     end
   end
   
+  describe '.latest' do
+    use_vcr_cassette
+    
+    it 'finds reviews' do
+      EetNu::Review.latest[0].should be_a EetNu::Review
+    end
+  end
+  
   describe '#initialize' do
     it "sets the review's attributes" do
       venue = EetNu::Review.new body: 'Awesome'
