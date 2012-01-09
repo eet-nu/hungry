@@ -8,6 +8,7 @@ module EetNu
     
     attr_accessor :id, :body, :ratings, :venue, :author
     
+    # Returns a single review specified by the id parameter
     def self.find(id)
       response = get "/reviews/#{id}"
       
