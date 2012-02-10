@@ -1,3 +1,5 @@
+require 'active_support/core_ext/hash/keys'
+
 module EetNu
   VERSION = '0.0.1'
   API_URL = 'www.eet.nu/api'
