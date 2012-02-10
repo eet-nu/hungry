@@ -2,7 +2,7 @@ require 'active_support/core_ext/hash/keys'
 
 module EetNu
   VERSION = '0.0.1'
-  API_URL = 'www.eet.nu/api'
+  API_URL = 'api.eet.nu'
   
   autoload :Review, 'eet_nu/review'
   autoload :Venue,  'eet_nu/venue'
