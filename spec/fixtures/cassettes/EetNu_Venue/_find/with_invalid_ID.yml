@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
-    uri: http://www.eet.nu:80/api/venues/1099511627776
+    uri: http://api.eet.nu:80/venues/1099511627776
     body: 
     headers: 
   response: !ruby/struct:VCR::Response
@@ -13,7 +13,7 @@
       server:
       - nginx/0.7.67
       date:
-      - Mon, 09 Jan 2012 18:47:36 GMT
+      - Fri, 10 Feb 2012 16:30:36 GMT
       content-type:
       - text/html; charset=utf-8
       status:
@@ -21,7 +21,7 @@
       content-length:
       - '0'
       x-runtime:
-      - '0.019695'
+      - '0.028454'
       x-rack-cache:
       - miss
     body: 

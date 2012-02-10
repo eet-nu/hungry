@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
-    uri: http://api.eet.nu:80/venues?query=beluga
+    uri: http://api.eet.nu:80/venues?query=beluga&sort_by=
     body: 
     headers: 
   response: !ruby/struct:VCR::Response
@@ -13,13 +13,13 @@
       server:
       - nginx/0.7.67
       date:
-      - Fri, 10 Feb 2012 16:30:36 GMT
+      - Fri, 10 Feb 2012 16:30:37 GMT
       content-type:
       - application/json; charset=utf-8
       status:
       - 200 OK
       etag:
-      - ! '"662ad3e13475abd8d87e2abf299ce29a"'
+      - ! '"5ea8f163026b57edf1d3169eae034c14"'
       last-modified:
       - Mon, 30 Jan 2012 21:24:13 GMT
       cache-control:
@@ -27,7 +27,7 @@
       x-ua-compatible:
       - IE=Edge,chrome=1
       x-runtime:
-      - '0.062276'
+      - '0.054934'
       x-content-digest:
       - 96d048a309c6bd66ed33a872b6cb11b033d1e7a1
       content-length:

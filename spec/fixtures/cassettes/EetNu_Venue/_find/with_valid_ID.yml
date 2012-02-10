@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
-    uri: http://www.eet.nu:80/api/venues/31335
+    uri: http://api.eet.nu:80/venues/31335
     body: 
     headers: 
   response: !ruby/struct:VCR::Response
@@ -13,29 +13,31 @@
       server:
       - nginx/0.7.67
       date:
-      - Mon, 09 Jan 2012 18:47:36 GMT
+      - Fri, 10 Feb 2012 16:30:36 GMT
       content-type:
       - application/json; charset=utf-8
       status:
       - 200 OK
+      etag:
+      - ! '"128628608f1e959c539dfc3965188e52"'
+      last-modified:
+      - Fri, 10 Feb 2012 07:03:55 GMT
       cache-control:
       - public, max-age=0
       x-ua-compatible:
       - IE=Edge,chrome=1
-      etag:
-      - ! '"1082bf89e193111c364dc3d375831172"'
       x-runtime:
-      - '0.027949'
+      - '0.040108'
       x-content-digest:
-      - 0756ed23766b37350aeb5f7f044414600147aae9
+      - 0612d218b29d4d49c1d82c8257c1a19ed652aaf3
       content-length:
-      - '1538'
+      - '3124'
       age:
       - '0'
       x-rack-cache:
       - stale, valid, store
-    body: ! '{"id":31335,"name":"i76","main_kitchen":"Afrikaans","reviews_count":0,"image_count":0,"menu_count":0,"address":{"street":"Brugstraat
-      77","zip":"6131AC","city":"Sittard","country":"the-netherlands"},"ratings":{},"location":{"lat":50.9985099,"lng":5.857652},"kitchens":[{"id":66,"name":"african","title":"Afrikaans"}],"tags":[{"name":"accessibility","title":"Toegankelijkheid","tags":[{"id":7,"name":"accessible","title":"Rolstoeltoegang"}]},{"name":"ambiances","title":"Ambiance","tags":[{"id":36,"name":"hip","title":"Hip"},{"id":38,"name":"cosy","title":"Gezellig"},{"id":34,"name":"formal","title":"Zakelijk"}]},{"name":"children","title":"Kinderen","tags":[{"id":10,"name":"child-entertainment","title":"Vermaak"}]},{"name":"diets","title":"Di\u00ebten","tags":[{"id":40,"name":"vegetarian","title":"Vegetarisch"}]},{"name":"environments","title":"Omgeving","tags":[{"id":27,"name":"town-centre","title":"In
-      het centrum"}]},{"name":"facilities","title":"Faciliteiten","tags":[{"id":20,"name":"wifi","title":"Wi-Fi"},{"id":21,"name":"allows-dogs","title":"Honden
-      toegestaan"}]}],"pro_ratings":{},"maintainer_ids":[57213],"staff":{},"prices":{"high_tea":19.95,"buffet":19.95},"capacity":{},"accessiblity":{},"image_urls":[],"opening_hours":{"lunch":[],"dinner":[{"name":"dinsdag","open":"gesloten"},{"name":"woensdag","open":"gesloten"},{"name":"donderdag","open":"gesloten"},{"name":"vrijdag","open":"gesloten"},{"name":"zaterdag","open":"gesloten"},{"name":"zondag","open":"gesloten"},{"name":"maandag","open":"gesloten"}]},"menus":[]}'
+    body: ! '{"id":31335,"name":"i76","category":"african","telephone":null,"fax":null,"website_url":"http://www.i76.nl/","tagline":null,"rating":null,"url":"http://www.eet.nu/sittard/i76","created_at":"2011-09-05T09:04:26Z","updated_at":"2012-02-10T07:03:55Z","resources":{"self":"http://api.eet.nu/venues/31335","reviews":"http://api.eet.nu/venues/31335/reviews"},"address":{"street":"Brugstraat
+      77","zipcode":"6131 AC","city":"Sittard"},"location":{"latitude":50.9985099,"longitude":5.857652},"counters":{"images":5,"menus":3,"reviews":0},"reachability":{"parking":null,"public_transportation":null},"staff":{"owner":null,"host":null,"chef":null,"sommelier":null},"prices":{"courses_3":null,"courses_4":null,"courses_5":null,"courses_6":null,"high_tea":19.95,"buffet":19.95},"capacity":{"seats":null,"seats_per_group":null},"description":null,"tags":["accessible","hip","cosy","formal","child-entertainment","vegetarian","town-centre","wifi","allows-dogs","african","takeaway-and-delivery","book-online"],"menus":[{"name":"Score
+      Query","url":"http://assets.eet.nu.s3.amazonaws.com/menus/3628/menu_1328279370-txt20120203-13413-1c7hq3w.txt?1328279390","content_type":"text/plain"},{"name":"List","url":"http://assets.eet.nu.s3.amazonaws.com/menus/3629/menu_1328279586-txt20120203-13413-1nnh6kp.txt?1328279587","content_type":"text/plain"},{"name":"Find
+      and replace","url":"http://assets.eet.nu.s3.amazonaws.com/menus/3630/menu_1328280863-txt20120203-24243-1x5od3m.txt?1328280865","content_type":"text/plain"}],"images":{"original":["http://assets.eet.nu.s3.amazonaws.com/attachments/28262/schipbeekstraat-4-jpg20120201-30738-z1ie3i_original.jpg?1328271201","http://assets.eet.nu.s3.amazonaws.com/attachments/28312/sterrenkoks-jpg20120203-9858-ab4rk5_original.jpg?1328272459","http://assets.eet.nu.s3.amazonaws.com/attachments/28313/schipbeekstraat-2-jpg20120203-24716-5zewe9_original.jpg?1328272857","http://assets.eet.nu.s3.amazonaws.com/attachments/28324/screen-shot-2012-01-23-at-10-18-11-am-png20120203-24237-19a6fws_original.png?1328281189","http://assets.eet.nu.s3.amazonaws.com/attachments/28330/schipbeekstraat-5-jpg20120203-6800-10ge0bc_original.jpg?1328283594"],"cropped":["http://assets.eet.nu.s3.amazonaws.com/attachments/28262/schipbeekstraat-4-jpg20120201-30738-z1ie3i_croppable.jpg?1328271201","http://assets.eet.nu.s3.amazonaws.com/attachments/28312/sterrenkoks-jpg20120203-9858-ab4rk5_croppable.jpg?1328272459","http://assets.eet.nu.s3.amazonaws.com/attachments/28313/schipbeekstraat-2-jpg20120203-24716-5zewe9_croppable.jpg?1328272857","http://assets.eet.nu.s3.amazonaws.com/attachments/28324/screen-shot-2012-01-23-at-10-18-11-am-png20120203-24237-19a6fws_croppable.png?1328281189","http://assets.eet.nu.s3.amazonaws.com/attachments/28330/schipbeekstraat-5-jpg20120203-6800-10ge0bc_croppable.jpg?1328283594"]},"maintainers":[{"id":57213,"profile_id":73185,"name":"Corina","url":"http://api.eet.nu/community/corina_9"}],"awards":{},"opening_hours":[{"day":0,"closed":true},{"day":1,"closed":true},{"day":2,"closed":true},{"day":3,"closed":true},{"day":4,"closed":true},{"day":5,"closed":true},{"day":6,"closed":true}]}'
     http_version: '1.1'

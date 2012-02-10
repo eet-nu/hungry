@@ -1,0 +1,44 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: http://api.eet.nu:80/venues?query=beluga&geolocation=50.8469397,5.6927505&sort_by=
+    body: 
+    headers: 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      server:
+      - nginx/0.7.67
+      date:
+      - Fri, 10 Feb 2012 16:30:37 GMT
+      content-type:
+      - application/json; charset=utf-8
+      status:
+      - 200 OK
+      etag:
+      - ! '"6aaa3b360ae6a80539980800e51f9244"'
+      last-modified:
+      - Mon, 30 Jan 2012 21:24:13 GMT
+      cache-control:
+      - public, max-age=0
+      x-ua-compatible:
+      - IE=Edge,chrome=1
+      x-runtime:
+      - '0.152005'
+      x-content-digest:
+      - 61880de46c79f814a9892034defdffdd88a3f8b8
+      content-length:
+      - '1948'
+      age:
+      - '0'
+      x-rack-cache:
+      - miss, store
+    body: ! '{"results":[{"id":977,"name":"Beluga Nxt Door","category":"french","telephone":"043-3101020","fax":null,"website_url":"http://www.nxtdoor.nl","tagline":null,"rating":64,"url":"http://www.eet.nu/maastricht/beluga-nxt-door","created_at":"2009-01-27T07:47:51Z","updated_at":"2012-01-02T03:00:59Z","resources":{"self":"http://api.eet.nu/venues/977","reviews":"http://api.eet.nu/venues/977/reviews"},"address":{"street":"Koestraat  2-6","zipcode":"6211
+      HR","city":"Maastricht"},"location":{"latitude":50.8469397,"longitude":5.6927505},"counters":{"images":0,"menus":0,"reviews":12},"distance":0.0,"relevance":4.9058127},{"id":1088,"name":"Beluga","category":"french","telephone":"043-3213364","fax":"043-3260356","website_url":"http://www.rest-beluga.com","tagline":null,"rating":94,"url":"http://www.eet.nu/maastricht/beluga","created_at":"2009-01-27T07:48:14Z","updated_at":"2012-01-30T21:24:13Z","resources":{"self":"http://api.eet.nu/venues/1088","reviews":"http://api.eet.nu/venues/1088/reviews"},"address":{"street":"Plein
+      1992 12","zipcode":"6221 JP","city":"Maastricht"},"location":{"latitude":50.8461267,"longitude":5.6996659},"counters":{"images":0,"menus":0,"reviews":24},"distance":494.3114270233026,"relevance":9.8116255},{"id":30712,"name":"Beluga
+      Beachclub","category":"international","telephone":"06-50744466","fax":null,"website_url":"http://www.belugabeachclub.com","tagline":null,"rating":null,"url":"http://www.eet.nu/maastricht/beluga-beachclub","created_at":"2011-07-18T11:33:55Z","updated_at":"2011-08-31T06:15:59Z","resources":{"self":"http://api.eet.nu/venues/30712","reviews":"http://api.eet.nu/venues/30712/reviews"},"address":{"street":"De
+      Griend","zipcode":"6221 AJ","city":"Maastricht"},"location":{"latitude":50.8557647,"longitude":5.6986347},"counters":{"images":0,"menus":0,"reviews":0},"distance":1065.6588681921276,"relevance":6.132266}],"pagination":{"current_page":1,"per_page":50,"total_entries":3,"total_pages":1}}'
+    http_version: '1.1'
