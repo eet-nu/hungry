@@ -6,7 +6,7 @@ module EetNu
 
                   ### Preview:
     attr_accessor :id, :name, :category, :telephone, :fax, :website_url,
-                  :tagline, :rating, :url, :address, :location, :relevance,
+                  :tagline, :rating, :url, :address, :geolocation, :relevance,
                   :distance,
 
                   ### Full:
