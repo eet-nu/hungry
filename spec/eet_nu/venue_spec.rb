@@ -75,7 +75,7 @@ describe EetNu::Venue do
     use_vcr_cassette
     
     it 'finds nearby venues' do
-      results = EetNu::Venue.nearby(50.8461267, 5.6996659)
+      results = EetNu::Venue.nearby([50.8461267, 5.6996659])
       results[0].name.should include 'Beluga'
     end
   end

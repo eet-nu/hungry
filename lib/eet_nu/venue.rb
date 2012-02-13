@@ -36,10 +36,10 @@ module EetNu
       uri = "/venues?query=#{query}"
       
       if options[:sort_by] == 'distance'
-        lat, lng = options[:geolocation]
-        raise GeolocationNotGiven unless lat && lng
+        geolocation = Geolocation.parse(options[:geolocation])
+        raise GeolocationNotGiven unless geolocation
         
-        uri += "&geolocation=#{lat},#{lng}"
+        uri += "&geolocation=#{geolocation}"
       end
       
       if options[:sort_by]
@@ -50,13 +50,14 @@ module EetNu
       response['results'].map do |attributes|
         Venue.new(attributes)
       end
-      
     end
     
     # Returns a maximum of 50 venues that are located near the given location.
     # Venues are ordered by distance.
-    def self.nearby(latitude, longitude)
-      response = get "/venues?geolocation=#{latitude},#{longitude}"
+    def self.nearby(geolocation)
+      geolocation = Geolocation.parse(geolocation)
+      
+      response = get "/venues?geolocation=#{geolocation}"
       response['results'].map do |attributes|
         Venue.new(attributes)
       end

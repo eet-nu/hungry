@@ -1,0 +1,63 @@
+module EetNu
+  class Geolocation
+    attr_accessor :latitude, :longitude
+
+    def self.parse(input)
+      # input is already a Geolocation, so we can return it early:
+      return input if input.is_a?(self)
+
+      if input.respond_to?(:geolocation)
+        # input has a geolocation attribute, so try to use that one first:
+        geolocation = parse(input.geolocation) 
+        return geolocation if geolocation
+      end
+
+      coordinates = []
+
+      if input.respond_to?(:latitude) && input.respond_to?(:longitude)
+        # input has latitude and longitude attributes, so use those:
+        coordinates = [input.latitude, input.longitude]
+
+      elsif input.respond_to?(:lat) && input.respond_to?(:lng)
+        # input has lat and lng attributes, so use those:
+        coordinates = [input.lat, input.lng]
+
+      elsif input.respond_to?(:match)
+        # Example: "50.8469397,5.6927505"
+        #
+        # input is a String, so we can use a regular expression to extract
+        # latitude and longitude:
+        if match = input.match(/^(?<latitude>[0-9\.]+),\s?(?<longitude>[0-9\.]+)$/)
+          coordinates = [match[:latitude], match[:longitude]]
+        end
+
+      elsif input.respond_to?(:keys)
+        # Example: { latitude: 50.8469397, longitude: 5.6927505 }
+        #
+        # input is a Hash, so we can extract values with the keys:
+        coordinates = [input[:latitude] || input[:lat], input[:longitude] || input[:lng]]
+
+      elsif input.respond_to?(:[])
+        # Example: [50.8469397, 5.6927505]
+        #
+        # input is an Array, so we need the first and second value:
+        coordinates = input[0], input[1]
+      end
+
+      coordinates = coordinates.map(&:presence).compact
+
+      if coordinates.length == 2 && coordinates.all? { |coordinate| Util.is_numeric?(coordinate) }
+        new(*coordinates)
+      end
+    end
+
+    def initialize(latitude, longitude)
+      self.latitude  = latitude.to_f
+      self.longitude = longitude.to_f
+    end
+
+    def to_s
+      [latitude, longitude].join(',')
+    end
+  end
+end
