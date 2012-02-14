@@ -1,9 +1,7 @@
-# Add support for #symbolize_keys
-require 'active_support/core_ext/hash/keys'
-# Add support for #presence
-require 'active_support/core_ext/object/blank'
-
 $LOAD_PATH << File.expand_path('..', __FILE__)
+
+require 'support/presence'
+require 'support/symbolize_keys'
 
 module EetNu
   VERSION = '0.0.1'
