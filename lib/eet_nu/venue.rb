@@ -3,16 +3,16 @@ require 'httparty'
 module EetNu
   class Venue
     include HTTParty
-
+    
                   ### Preview:
     attr_accessor :id, :name, :category, :telephone, :fax, :website_url,
                   :tagline, :rating, :url, :address, :geolocation, :relevance,
                   :distance,
-
+                  
                   ### Full:
                   :reachability, :staff, :prices, :capacity, :description,
                   :tags, :menus, :images, :maintainers, :awards, :opening_hours,
-
+                  
                   ### Utility:
                   :resources,  :counters, :created_at, :updated_at
     
@@ -23,6 +23,15 @@ module EetNu
       response = get "/venues/#{id}"
       
       Venue.new(response) if response.code == 200
+    end
+    
+    # Returns all venues paginated per 100
+    def self.all
+      response = get "/venues"
+      
+      response['results'].map do |attributes|
+        Venue.new(attributes)
+      end
     end
     
     # Returns a maximum of 50 venues satisfying the query parameter.

@@ -27,6 +27,15 @@ describe EetNu::Venue do
     end
   end
   
+  describe '.all' do
+    use_vcr_cassette
+    
+    it 'finds 8 venues' do
+      results = EetNu::Venue.all
+      results.length.should have(8).venues
+    end
+  end
+  
   describe '.search' do
     use_vcr_cassette
     
