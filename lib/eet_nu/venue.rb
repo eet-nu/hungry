@@ -56,7 +56,7 @@ module EetNu
       end
       
       if options[:sort_by]
-        uri += "&sort_by=#{options[:order]}"
+        uri += "&sort_by=#{options[:sort_by]}"
       end
       
       response = get uri
