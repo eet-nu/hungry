@@ -2,7 +2,7 @@
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :get
-    uri: http://api.eet.nu:80/venues
+    uri: http://api.eet.nu:80/venues?
     body: 
     headers: 
   response: !ruby/struct:VCR::Response
@@ -13,7 +13,7 @@
       server:
       - nginx/0.7.67
       date:
-      - Tue, 14 Feb 2012 11:18:47 GMT
+      - Wed, 15 Feb 2012 08:43:04 GMT
       content-type:
       - application/json; charset=utf-8
       status:
@@ -21,15 +21,15 @@
       etag:
       - ! '"d58cc9b9b8e701720bc61e6cb81fcc7d"'
       last-modified:
-      - Tue, 14 Feb 2012 11:17:14 GMT
+      - Wed, 15 Feb 2012 08:38:48 GMT
       cache-control:
       - public, max-age=0
       x-ua-compatible:
       - IE=Edge,chrome=1
       x-runtime:
-      - '0.648410'
+      - '0.786013'
       x-content-digest:
-      - 359606183050a60dc37c5ed4a318347638652413
+      - 0142519b3e9533ba786f3c882579370c07713501
       content-length:
       - '57030'
       age:
@@ -48,7 +48,7 @@
       (0)475-591692","fax":"+31 (0)475-594372","website_url":"http://www.dehuiskamervanhetleudal.nl/","tagline":null,"rating":99,"url":"http://www.eet.nu/nunhem/de-huiskamer-van-het-leudal-restaurant-houben","created_at":"2009-01-27T08:18:40Z","updated_at":"2011-12-19T14:24:38Z","address":{"street":"Kerkstraat
       17-19","zipcode":"6083 AD","city":"Nunhem"},"resources":{"self":"http://api.eet.nu/venues/11340","reviews":"http://api.eet.nu/venues/11340/reviews"},"geolocation":{"latitude":51.2438396,"longitude":5.964443},"counters":{"images":0,"menus":0,"reviews":5}},{"id":30604,"name":"Dorpzicht","category":"eatery","telephone":null,"fax":null,"website_url":null,"tagline":null,"rating":99,"url":"http://www.eet.nu/lage-mierde/dorpzicht","created_at":"2011-06-30T11:06:42Z","updated_at":"2011-12-27T03:13:47Z","address":{"street":"Dorpsplein
       2","zipcode":"5094 GJ","city":"Lage mierde"},"resources":{"self":"http://api.eet.nu/venues/30604","reviews":"http://api.eet.nu/venues/30604/reviews"},"geolocation":{"latitude":51.4062771,"longitude":5.1490444},"counters":{"images":0,"menus":0,"reviews":4}},{"id":25851,"name":"Joe
-      Mann Paviljoen","category":"lunchroom","telephone":"0499-372032","fax":"0499-372032","website_url":"http://www.joe-mann.nl/","tagline":null,"rating":99,"url":"http://www.eet.nu/best/joe-mann-paviljoen","created_at":"2010-01-25T18:30:09Z","updated_at":"2012-02-13T20:11:00Z","address":{"street":"Joe
+      Mann Paviljoen","category":"lunchroom","telephone":"0499-372032","fax":"0499-372032","website_url":"http://www.joe-mann.nl/","tagline":null,"rating":99,"url":"http://www.eet.nu/best/joe-mann-paviljoen","created_at":"2010-01-25T18:30:09Z","updated_at":"2012-02-14T12:21:04Z","address":{"street":"Joe
       mannweg 4","zipcode":"5681 PT","city":"Best"},"resources":{"self":"http://api.eet.nu/venues/25851","reviews":"http://api.eet.nu/venues/25851/reviews"},"geolocation":{"latitude":51.514719,"longitude":5.4361568},"counters":{"images":0,"menus":0,"reviews":4}},{"id":14274,"name":"Cafetaria
       Trio","category":"snackbar","telephone":"053-4322453","fax":null,"website_url":null,"tagline":null,"rating":98,"url":"http://www.eet.nu/enschede/cafetaria-trio","created_at":"2009-01-27T08:28:21Z","updated_at":"2012-02-14T03:03:23Z","address":{"street":"Wooldriksweg
       29","zipcode":"7512 AN","city":"Enschede"},"resources":{"self":"http://api.eet.nu/venues/14274","reviews":"http://api.eet.nu/venues/14274/reviews"},"geolocation":{"latitude":52.2136993,"longitude":6.8944802},"counters":{"images":0,"menus":0,"reviews":18}},{"id":16434,"name":"Dopmeijer
