@@ -27,21 +27,10 @@ module EetNu
     
     # Returns all venues paginated per 100
     def self.all(options = {})
-      uri = "/venues?x=1"
-      
-      params = {}
-      if options[:per_page]
-        params.merge!({ per_page: options[:per_page] })
-      end
-      
-      if options[:page]
-        params.merge!({ page: options[:page] })
-      end
-      
-      if params.present?
-        uri += "?" + params.map{ |e| e.join '=' }.join('&')
-      end
-      
+      params = options.map { |k,v| "#{k}=#{CGI.escape(v)}" }.
+                       join('&')
+      uri = ['/venues', params].join('?')
+
       response = get uri
       
       response['results'].map do |attributes|
