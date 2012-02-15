@@ -8,7 +8,7 @@ module EetNu
     
                   ### Venue:
     attr_accessor :id, :body, :rating, :scores, :author,
-
+                  
                   ### Utility:
                   :created_at, :updated_at
     
