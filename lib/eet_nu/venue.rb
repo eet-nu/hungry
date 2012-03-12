@@ -7,7 +7,7 @@ module EetNu
                   ### Preview:
     attr_accessor :id, :name, :category, :telephone, :fax, :website_url,
                   :tagline, :rating, :url, :address, :geolocation, :relevance,
-                  :distance,
+                  :distance, :plan,
                   
                   ### Full:
                   :reachability, :staff, :prices, :capacity, :description,
