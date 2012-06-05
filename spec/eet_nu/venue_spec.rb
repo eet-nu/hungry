@@ -89,6 +89,26 @@ describe EetNu::Venue do
     end
   end
   
+  describe '.tagged_with' do
+    use_vcr_cassette
+    
+    it 'finds venues tagged with visa' do
+      results = EetNu::Venue.tagged_with('visa')
+      
+      results[0].name.should include 'AnyTyme Friture Royaal'
+    end
+    
+    context 'with multiple tags' do
+      use_vcr_cassette
+
+      it 'finds venues tagged with visa and cosy' do
+        results = EetNu::Venue.tagged_with(['visa', 'cosy'])
+      
+        results[0].name.should include 'Houben'
+      end
+    end
+  end
+  
   describe '#initialize' do
     it "sets the venue's attributes" do
       venue = EetNu::Venue.new name: 'i76'

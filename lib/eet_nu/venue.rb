@@ -30,7 +30,7 @@ module EetNu
       params = options.map { |k,v| "#{k}=#{CGI.escape(v)}" }.
                        join('&')
       uri = ['/venues', params].join('?')
-
+      
       response = get uri
       
       response['results'].map do |attributes|
@@ -71,6 +71,16 @@ module EetNu
       geolocation = Geolocation.parse(geolocation)
       
       response = get "/venues?geolocation=#{geolocation}"
+      response['results'].map do |attributes|
+        Venue.new(attributes)
+      end
+    end
+    
+    # Returns all venues that are tagged with the given tags.
+    def self.tagged_with(tags)
+      tags = [tags] unless tags.is_a? Array
+      
+      response = get "/venues?tags=#{tags.join(',')}"
       response['results'].map do |attributes|
         Venue.new(attributes)
       end
