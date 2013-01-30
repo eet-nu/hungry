@@ -1,4 +1,4 @@
-module EetNu
+module Hungry
   module Util
     extend self
     

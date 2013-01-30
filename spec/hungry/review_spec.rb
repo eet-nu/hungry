@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe EetNu::Review do
+describe Hungry::Review do
   # describe '.find' do
   #   context 'with a valid ID' do
   #     use_vcr_cassette
   #
-  #     subject { EetNu::Review.find(54863) }
+  #     subject { Hungry::Review.find(54863) }
   #
   #     it 'finds a review' do
-  #       subject.should be_a EetNu::Review
+  #       subject.should be_a Hungry::Review
   #     end
   #
   #     it "sets the review's attributes" do
@@ -19,7 +19,7 @@ describe EetNu::Review do
   #   context 'with an invalid ID' do
   #     use_vcr_cassette
   #
-  #     subject { EetNu::Review.find(1024 ** 4) }
+  #     subject { Hungry::Review.find(1024 ** 4) }
   #
   #     it 'returns nil' do
   #       subject.should be_nil
@@ -31,13 +31,13 @@ describe EetNu::Review do
   #   use_vcr_cassette
   #
   #   it 'finds reviews' do
-  #     EetNu::Review.latest[0].should be_a EetNu::Review
+  #     Hungry::Review.latest[0].should be_a Hungry::Review
   #   end
   # end
   
   describe '#initialize' do
     it "sets the review's attributes" do
-      venue = EetNu::Review.new body: 'Awesome'
+      venue = Hungry::Review.new body: 'Awesome'
       venue.body.should == 'Awesome'
     end
   end

@@ -1,6 +1,6 @@
 require 'httparty'
 
-module EetNu
+module Hungry
   class Venue
     include HTTParty
     
@@ -16,7 +16,7 @@ module EetNu
                   ### Utility:
                   :resources,  :counters, :created_at, :updated_at
     
-    base_uri EetNu::API_URL
+    base_uri Hungry::API_URL
     
     # Returns a single venue specified by the id parameter.
     def self.find(id)

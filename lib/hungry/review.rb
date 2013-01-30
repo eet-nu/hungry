@@ -1,10 +1,10 @@
 require 'httparty'
 
-module EetNu
+module Hungry
   class Review
     include HTTParty
     
-    base_uri EetNu::API_URL
+    base_uri Hungry::API_URL
     
                   ### Venue:
     attr_accessor :id, :body, :rating, :scores, :author,

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe EetNu::Geolocation do
-  let(:geo) { EetNu::Geolocation.new(50.8469397, 5.6927505) }
+describe Hungry::Geolocation do
+  let(:geo) { Hungry::Geolocation.new(50.8469397, 5.6927505) }
 
   describe '.parse' do
     context 'with a Geolocation' do
       it 'returns the given Geolocation' do
-        EetNu::Geolocation.parse(geo).should == geo
+        Hungry::Geolocation.parse(geo).should == geo
       end
     end
 
@@ -17,7 +17,7 @@ describe EetNu::Geolocation do
           def longitude;  5.6927505; end
         end.new
 
-        geo = EetNu::Geolocation.parse(object)
+        geo = Hungry::Geolocation.parse(object)
         geo.latitude.should  == 50.8469397
         geo.longitude.should ==  5.6927505
       end
@@ -28,23 +28,23 @@ describe EetNu::Geolocation do
           def lng;  5.6927505; end
         end.new
 
-        geo = EetNu::Geolocation.parse(object)
+        geo = Hungry::Geolocation.parse(object)
         geo.latitude.should  == 50.8469397
         geo.longitude.should ==  5.6927505
       end
 
       it 'returns a Geolocation object for objects that have a valid geolocation' do
         object = Class.new do
-          def geolocation; EetNu::Geolocation.new(50.8469397, 5.6927505); end
+          def geolocation; Hungry::Geolocation.new(50.8469397, 5.6927505); end
         end.new
 
-        geo = EetNu::Geolocation.parse(object)
+        geo = Hungry::Geolocation.parse(object)
         geo.latitude.should  == 50.8469397
         geo.longitude.should ==  5.6927505
       end
 
       it 'returns nil for objects without geo information' do
-        geo = EetNu::Geolocation.parse(Object.new)
+        geo = Hungry::Geolocation.parse(Object.new)
         geo.should be_nil
       end
 
@@ -53,52 +53,52 @@ describe EetNu::Geolocation do
           def geolocation; "just a string"; end
         end.new
 
-        geo = EetNu::Geolocation.parse(object)
+        geo = Hungry::Geolocation.parse(object)
         geo.should be_nil
       end
     end
 
     context 'with a String' do
       it 'returns a Geolocation object' do
-        geo = EetNu::Geolocation.parse('50.8469397,5.6927505')
+        geo = Hungry::Geolocation.parse('50.8469397,5.6927505')
         geo.latitude.should  == 50.8469397
         geo.longitude.should ==  5.6927505
       end
 
       it 'returns nil if the string can not be parsed' do
-        geo = EetNu::Geolocation.parse('not-a,geolocation')
+        geo = Hungry::Geolocation.parse('not-a,geolocation')
         geo.should be_nil
       end
     end
 
     context 'with an Array' do
       it 'returns a Geolocation object' do
-        geo = EetNu::Geolocation.parse([50.8469397, 5.6927505])
+        geo = Hungry::Geolocation.parse([50.8469397, 5.6927505])
         geo.latitude.should  == 50.8469397
         geo.longitude.should ==  5.6927505
       end
 
       it 'returns nil if the array can not be parsed' do
-        geo = EetNu::Geolocation.parse(['not a', 'geolocation'])
+        geo = Hungry::Geolocation.parse(['not a', 'geolocation'])
         geo.should be_nil
       end
     end
 
     context 'with a Hash' do
       it 'returns a Geolocation object' do
-        geo = EetNu::Geolocation.parse(latitude: 50.8469397, longitude: 5.6927505)
+        geo = Hungry::Geolocation.parse(latitude: 50.8469397, longitude: 5.6927505)
         geo.latitude.should  == 50.8469397
         geo.longitude.should ==  5.6927505
       end
 
       it 'supports abbreviated keys' do
-        geo = EetNu::Geolocation.parse(lat: 50.8469397, lng: 5.6927505)
+        geo = Hungry::Geolocation.parse(lat: 50.8469397, lng: 5.6927505)
         geo.latitude.should  == 50.8469397
         geo.longitude.should ==  5.6927505
       end
 
       it 'returns nil if the hash can not be parsed' do
-        geo = EetNu::Geolocation.parse(a: 'b', c: 'd')
+        geo = Hungry::Geolocation.parse(a: 'b', c: 'd')
         geo.should be_nil
       end
     end

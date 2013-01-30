@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path('../lib', __FILE__)
-require 'eet_nu'
+require 'hungry'
 
 Gem::Specification.new do |s|
-  s.name        = 'eet-nu'
-  s.version     = EetNu::VERSION
+  s.name        = 'hungry'
+  s.version     = Hungry::VERSION
   s.authors     = ['Tom-Eric Gerritsen']
   s.email       = ['tomeric@eet.nu']
-  s.homepage    = 'http://github.com/eet-nu/eet-nu'
+  s.homepage    = 'http://github.com/eet-nu/hungry'
   s.summary     = %q{An interface to the Eet.nu API.}
   s.description = %q{An interface to the Eet.nu API.}
   
@@ -21,6 +21,5 @@ Gem::Specification.new do |s|
   
   # specify any development dependencies here:
   s.add_development_dependency 'rspec'
-  s.add_development_dependency 'vcr'
   s.add_development_dependency 'fakeweb'
 end
