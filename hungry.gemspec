@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   
   # specify any dependencies here:
   s.add_dependency 'httparty'
+  s.add_dependency 'rack'
   
   # specify any development dependencies here:
   s.add_development_dependency 'rspec'

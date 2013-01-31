@@ -4,6 +4,12 @@ begin
 
 rescue LoadError => e
   Object.class_eval do
+    unless respond_to?(:present?)
+      def present?
+        !!presence
+      end
+    end
+    
     unless respond_to?(:presence)
       def presence
         return nil if respond_to?(:empty?) ? empty? : !self

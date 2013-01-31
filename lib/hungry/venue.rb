@@ -1,8 +1,20 @@
-require 'httparty'
-
 module Hungry
-  class Venue
-    include HTTParty
+  class Venue < Resource
+    autoload :Collection, 'hungry/venue/collection'
+    
+    self.endpoint = '/venues'
+    
+    ### RESOURCES:
+    
+    has_many :reviews, Review
+    
+    belongs_to :country, Country
+    
+    belongs_to :region, Region
+    
+    belongs_to :city, City
+    
+    ### ATTRIBUTES:
     
                   ### Preview:
     attr_accessor :id, :name, :category, :telephone, :fax, :website_url,
@@ -16,89 +28,30 @@ module Hungry
                   ### Utility:
                   :resources,  :counters, :created_at, :updated_at
     
-    base_uri Hungry::API_URL
+    ### FINDERS:
     
-    # Returns a single venue specified by the id parameter.
-    def self.find(id)
-      response = get "/venues/#{id}"
-      
-      Venue.new(response) if response.code == 200
+    def self.collection
+      Collection.new(self, endpoint, default_criteria)
     end
     
-    # Returns all venues paginated per 100
-    def self.all(options = {})
-      params = options.map { |k,v| "#{k}=#{CGI.escape(v)}" }.
-                       join('&')
-      uri = ['/venues', params].join('?')
-      
-      response = get uri
-      
-      response['results'].map do |attributes|
-        Venue.new(attributes)
-      end
+    def self.search(query)
+      collection.search(query)
     end
     
-    # Returns a maximum of 50 venues satisfying the query parameter.
-    # 
-    # Accepts options:
-    # * `sort_by` -- can be set to "distance" or "relevance". If the order is set
-    #   to "distance", the `location` option is required.
-    # * `geolocation` -- an array with a latitude and longitude. Required if the
-    #   results are to be sorted by distance.
-    def self.search(query, options = {})
-      uri = "/venues?query=#{query}"
-      
-      if options[:sort_by] == 'distance'
-        geolocation = Geolocation.parse(options[:geolocation])
-        raise GeolocationNotGiven unless geolocation
-        
-        uri += "&geolocation=#{geolocation}"
-      end
-      
-      if options[:sort_by]
-        uri += "&sort_by=#{options[:sort_by]}"
-      end
-      
-      response = get uri
-      response['results'].map do |attributes|
-        Venue.new(attributes)
-      end
+    def self.nearby(geolocation, options = {})
+      collection.nearby(geolocation, options)
     end
     
-    # Returns a maximum of 50 venues that are located near the given location.
-    # Venues are ordered by distance.
-    def self.nearby(geolocation)
-      geolocation = Geolocation.parse(geolocation)
-      
-      response = get "/venues?geolocation=#{geolocation}"
-      response['results'].map do |attributes|
-        Venue.new(attributes)
-      end
+    def self.tagged_with(*tags)
+      collection.tagged_with(tags)
     end
     
-    # Returns all venues that are tagged with the given tags.
-    def self.tagged_with(tags)
-      tags = [tags] unless tags.is_a? Array
-      
-      response = get "/venues?tags=#{tags.join(',')}"
-      response['results'].map do |attributes|
-        Venue.new(attributes)
-      end
+    def self.sort_by(sortable)
+      collection.sort_by(sortable)
     end
     
-    def initialize(attributes = {})
-      attributes.each do |key, value|
-        value.symbolize_keys! if value.respond_to?(:symbolize_keys!)
-        send("#{key}=", value) if respond_to?("#{key}=")
-      end
-    end
-    
-    # Returns all reviews of this venue
-    def reviews
-      response = self.class.get resources[:reviews]
-      response['results'].map do |attributes|
-        Review.new(attributes)
-      end
+    def self.paginate(page, options = {})
+      collection.paginate(page, options)
     end
   end
 end
