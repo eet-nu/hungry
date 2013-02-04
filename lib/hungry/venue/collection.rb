@@ -15,7 +15,7 @@ module Hungry
       end
       
       def tagged_with(*tags)
-        all tags: current_tags + tags.flatten
+        all tags: (current_tags + tags.flatten).compact.join(',')
       end
       
       def sort_by(subject)

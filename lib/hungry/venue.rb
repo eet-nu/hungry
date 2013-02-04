@@ -43,7 +43,7 @@ module Hungry
     end
     
     def self.tagged_with(*tags)
-      collection.tagged_with(tags)
+      collection.tagged_with(*tags)
     end
     
     def self.sort_by(sortable)
