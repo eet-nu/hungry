@@ -32,6 +32,8 @@ module Hungry
     end
     
     class << self
+      include Enumerable
+      
       attr_writer :endpoint
       attr_writer :default_criteria
       
@@ -63,6 +65,10 @@ module Hungry
       
       def all(criteria = {})
         collection.all(criteria)
+      end
+      
+      def each(&block)
+        all.each(&block)
       end
     end
     
