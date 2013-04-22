@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rack'
   
   # specify any development dependencies here:
+  s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'fakeweb'
 end
