@@ -13,7 +13,6 @@ module Hungry
     ### CLASS METHODS:
     
     def self.get(*args)
-      puts "[Collection]: GET #{args.map(&:inspect).join(', ')}"
       self.base_uri Hungry.api_url
       super
     end
