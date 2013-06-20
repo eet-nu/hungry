@@ -1,7 +1,15 @@
-$LOAD_PATH << File.expand_path('..', __FILE__)
-
-require 'support/presence'
-require 'support/symbolize_keys'
+if defined?(Motion::Project::Config)
+  Motion::Project::App.setup do |app|
+    Dir.glob(File.join(File.dirname(__FILE__), '**/*.rb')).each do |file|
+      app.files.unshift(file)
+    end
+  end
+else
+  $LOAD_PATH << File.expand_path('..', __FILE__)
+  
+  require 'support/presence'
+  require 'support/symbolize_keys'
+end
 
 module Hungry
   VERSION = '0.0.1'
@@ -10,11 +18,11 @@ module Hungry
     attr_accessor :api_url, :json_parser
   end
   
-  self.api_url = 'http://api.eet.nu/'
-  self.json_parser   = lambda do |json|
-                         require 'json'
-                         JSON.parse(json)
-                       end
+  self.api_url     = 'http://api.eet.nu/'
+  self.json_parser = lambda do |json|
+                       require 'json'
+                       JSON.parse(json)
+                     end
   
   ### LIBRARY:
   

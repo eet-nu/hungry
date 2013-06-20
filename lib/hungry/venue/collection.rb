@@ -1,3 +1,5 @@
+require_relative '../collection'
+
 module Hungry
   class Venue
     class Collection < Hungry::Collection

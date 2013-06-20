@@ -1,5 +1,3 @@
-require 'httparty'
-
 module Hungry
   class Resource
     include HTTParty

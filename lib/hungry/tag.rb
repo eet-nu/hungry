@@ -13,9 +13,9 @@ module Hungry
     
     ### RESOURCES:
     
-    has_many :venues, Venue
+    has_many :venues, Hungry::Venue
     
-    has_many :tags, Tag
+    has_many :tags, Hungry::Tag
     
   end
 end

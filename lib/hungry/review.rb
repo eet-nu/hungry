@@ -1,5 +1,3 @@
-require 'httparty'
-
 module Hungry
   class Review < Resource
     
@@ -13,7 +11,7 @@ module Hungry
     
     ### RESOURCES:
     
-    belongs_to :venue, Venue
+    belongs_to :venue, Hungry::Venue
     
   end
 end
