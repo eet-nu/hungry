@@ -5,6 +5,10 @@ module Hungry
   module Util
     extend self
     
+    def parse_json(json)
+      Hungry.json_parser.call(json)
+    end
+    
     def params_from_uri(uri)
       uri = URI.parse(uri) unless uri.is_a?(URI)
       Rack::Utils.parse_query(uri.query) if uri.query.present?

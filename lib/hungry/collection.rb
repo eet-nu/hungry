@@ -40,17 +40,21 @@ module Hungry
       if args.present?
         super
       else
-        response['results'].count
+        json['results'].count
       end
     end
     
     def each(&block)
-      response['results'].each do |result|
+      json['results'].each do |result|
         yield klass.new(result)
       end
     end
     
     private
+    
+    def json
+      @json ||= Util.parse_json(response.body)
+    end
     
     def response
       raise NoEndpointSpecified unless endpoint

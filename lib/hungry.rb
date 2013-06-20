@@ -7,10 +7,14 @@ module Hungry
   VERSION = '0.0.1'
   
   class << self
-    attr_accessor :api_url
+    attr_accessor :api_url, :json_parser
   end
   
   self.api_url = 'http://api.eet.nu/'
+  self.json_parser   = lambda do |json|
+                         require 'json'
+                         JSON.parse(json)
+                       end
   
   ### LIBRARY:
   
