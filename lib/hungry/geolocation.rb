@@ -27,8 +27,8 @@ module Hungry
         #
         # input is a String, so we can use a regular expression to extract
         # latitude and longitude:
-        if match = input.match(/^(?<latitude>[0-9\.]+),\s?(?<longitude>[0-9\.]+)$/)
-          coordinates = [match[:latitude], match[:longitude]]
+        if match = input.match(/^([0-9\.]+),\s?([0-9\.]+)$/)
+          coordinates = [match[1], match[2]]
         end
         
       elsif input.respond_to?(:keys)
