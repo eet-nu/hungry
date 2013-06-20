@@ -1,3 +1,5 @@
+require 'httparty' unless defined? HTTParty
+
 module Hungry
   class Resource
     include HTTParty

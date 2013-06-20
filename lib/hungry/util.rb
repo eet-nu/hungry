@@ -1,5 +1,5 @@
-require 'cgi'
-require 'rack/utils'
+require 'cgi'        unless defined?(CGI)
+require 'rack/utils' unless defined?(Rack::Utils)
 
 module Hungry
   module Util

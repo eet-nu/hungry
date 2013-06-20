@@ -1,5 +1,4 @@
-require 'httparty'
-require 'cgi'
+require 'httparty' unless defined? HTTParty
 
 module Hungry
   class Collection
