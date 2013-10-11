@@ -57,7 +57,7 @@ module Hungry
         
         response = get "#{endpoint}/#{id}"
         
-        if response.status == 200
+        if response.code == 200
           attributes = Util.parse_json(response.body)
           new(attributes)
         end
