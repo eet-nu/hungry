@@ -18,5 +18,12 @@ module Hungry
       collection.all(hostname: hostname).first
     end
     
+    ### INSTANCE METHODS:
+    
+    def hostname
+      uri = URI.parse(url) rescue nil
+      uri && uri.hostname
+    end
+    
   end
 end
