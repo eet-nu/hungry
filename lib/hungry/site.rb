@@ -18,6 +18,10 @@ module Hungry
       collection.all(hostname: hostname).first
     end
     
+    def self.for_country(country)
+      collection.all(country: country.id).first
+    end
+    
     def self.default_site
       collection.all(default: true).first
     end
