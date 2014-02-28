@@ -12,6 +12,7 @@ script: bundle exec rspec spec
 
 # Notification settings:
 notifications:
+  webhooks: https://eetnu.slack.com/services/hooks/travis?token=YC3xwKe1gu65ikh1XOaLrUEh
   campfire:
     on_success: change
     on_failure: always
