@@ -24,6 +24,7 @@ module Hungry
                   ### Full:
                   :reachability, :staff, :prices, :capacity, :description,
                   :tags, :menus, :images, :maintainers, :awards, :opening_hours,
+                  :holidays,
                   
                   ### Utility:
                   :resources,  :counters, :created_at, :updated_at
