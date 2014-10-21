@@ -3,14 +3,6 @@ module Hungry
     
     self.endpoint = '/locations'
     
-    ### ATTRIBUTES:
-    
-                  ### Location:
-    attr_accessor :id, :name, :type, :url, :geolocation,
-                  
-                  ### Utility:
-                  :resources, :counters
-    
     ### RESOURCES:
     
     has_many :venues, 'Hungry::Venue'
@@ -19,5 +11,12 @@ module Hungry
     
     has_many :tags, 'Hungry::Tag'
     
+    ### ATTRIBUTES:
+    
+                  ### Location:
+    attr_accessor :id, :name, :type, :url, :geolocation,
+                  
+                  ### Utility:
+                  :resources, :counters
   end
 end

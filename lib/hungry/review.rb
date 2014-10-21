@@ -1,6 +1,10 @@
 module Hungry
   class Review < Resource
     
+    ### RESOURCES:
+    
+    belongs_to :venue, 'Hungry::Venue'
+    
     ### ATTRIBUTES:
     
                   ### Review:
@@ -8,10 +12,6 @@ module Hungry
                   
                   ### Utility:
                   :created_at, :updated_at
-    
-    ### RESOURCES:
-    
-    belongs_to :venue, 'Hungry::Venue'
     
   end
 end

@@ -14,21 +14,6 @@ module Hungry
     
     belongs_to :city, 'Hungry::City'
     
-    ### ATTRIBUTES:
-    
-                  ### Preview:
-    attr_accessor :id, :name, :category, :telephone, :fax, :website_url,
-                  :tagline, :rating, :url, :address, :geolocation, :relevance,
-                  :distance, :plan,
-                  
-                  ### Full:
-                  :reachability, :staff, :prices, :capacity, :description,
-                  :tags, :menus, :images, :maintainers, :awards, :opening_hours,
-                  :holidays,
-                  
-                  ### Utility:
-                  :resources,  :counters, :created_at, :updated_at
-    
     ### FINDERS:
     
     def self.collection
@@ -54,5 +39,20 @@ module Hungry
     def self.paginate(page, options = {})
       collection.paginate(page, options)
     end
+    
+    ### ATTRIBUTES:
+    
+                  ### Preview:
+    attr_accessor :id, :name, :category, :telephone, :fax, :website_url,
+                  :tagline, :rating, :url, :address, :geolocation, :relevance,
+                  :distance, :plan,
+                  
+                  ### Full:
+                  :reachability, :staff, :prices, :capacity, :description,
+                  :tags, :menus, :images, :maintainers, :awards, :opening_hours,
+                  :holidays,
+                  
+                  ### Utility:
+                  :resources,  :counters, :created_at, :updated_at
   end
 end

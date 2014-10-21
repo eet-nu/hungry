@@ -3,15 +3,6 @@ module Hungry
     
     self.endpoint = '/sites'
     
-    ### ATTRIBUTES:
-    
-                  ### Preview:
-    attr_accessor :id, :name, :title, :subtitle, :identifier, :default, :locale,
-                  :url, :email, :support_email, :timezone, :country, :applications,
-                  
-                  ### Utility:
-                  :resources,  :counters
-    
     ### FINDERS:
     
     def self.with_hostname(hostname)
@@ -26,7 +17,15 @@ module Hungry
       collection.all(default: true).first
     end
     
-    ### INSTANCE METHODS:
+    
+    ### ATTRIBUTES:
+    
+                  ### Preview:
+    attr_accessor :id, :name, :title, :subtitle, :identifier, :default, :locale,
+                  :url, :email, :support_email, :timezone, :country, :applications,
+                  
+                  ### Utility:
+                  :resources,  :counters
     
     def hostname
       uri = URI.parse(url) rescue nil

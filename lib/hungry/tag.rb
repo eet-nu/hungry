@@ -3,6 +3,12 @@ module Hungry
     
     self.endpoint = '/tags'
     
+    ### RESOURCES:
+    
+    has_many :venues, 'Hungry::Venue'
+    
+    has_many :tags, 'Hungry::Tag'
+    
     ### ATTRIBUTES:
     
                   ### Tag:
@@ -10,12 +16,5 @@ module Hungry
                   
                   ### Utility:
                   :resources, :counters
-    
-    ### RESOURCES:
-    
-    has_many :venues, 'Hungry::Venue'
-    
-    has_many :tags, 'Hungry::Tag'
-    
   end
 end
