@@ -18,17 +18,22 @@ module Hungry
   
   ### LIBRARY:
   
-  autoload :City,        'hungry/city'
+  # Utility:
   autoload :Collection,  'hungry/collection'
-  autoload :Country,     'hungry/country'
+  autoload :Resource,    'hungry/resource'
+  autoload :Util,        'hungry/util'
+  
+  # Helpers:
   autoload :Geolocation, 'hungry/geolocation'
   autoload :Location,    'hungry/location'
+  
+  # Models:
+  autoload :City,        'hungry/city'
+  autoload :Country,     'hungry/country'
   autoload :Region,      'hungry/region'
-  autoload :Resource,    'hungry/resource'
   autoload :Review,      'hungry/review'
   autoload :Site,        'hungry/site'
   autoload :Tag,         'hungry/tag'
-  autoload :Util,        'hungry/util'
   autoload :Venue,       'hungry/venue'
   
   ### EXCEPTIONS:

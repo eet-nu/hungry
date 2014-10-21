@@ -6,13 +6,13 @@ module Hungry
     
     ### RESOURCES:
     
-    has_many :reviews, Hungry::Review
+    has_many :reviews, 'Hungry::Review'
     
-    belongs_to :country, Hungry::Country
+    belongs_to :country, 'Hungry::Country'
     
-    belongs_to :region, Hungry::Region
+    belongs_to :region, 'Hungry::Region'
     
-    belongs_to :city, Hungry::City
+    belongs_to :city, 'Hungry::City'
     
     ### ATTRIBUTES:
     

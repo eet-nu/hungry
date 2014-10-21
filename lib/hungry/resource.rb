@@ -13,8 +13,9 @@ module Hungry
       super
     end
     
-    def self.belongs_to(resource, klass = Resource)
+    def self.belongs_to(resource, klass = 'Resource')
       define_method resource do
+        klass = Kernel.const_get(klass) if klass.is_a?(String)
         if url = resources[resource]
           attributes = self.class.get url
           klass.new(attributes)
@@ -22,8 +23,9 @@ module Hungry
       end
     end
     
-    def self.has_many(resource, klass = Resource)
+    def self.has_many(resource, klass = 'Resource')
       define_method resource do
+        klass = Kernel.const_get(klass) if klass.is_a?(String)
         if url = resources[resource]
           klass.collection.from_url(url)
         end

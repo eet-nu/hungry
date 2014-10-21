@@ -11,7 +11,7 @@ module Hungry
     
     ### RESOURCES:
     
-    belongs_to :venue, Hungry::Venue
+    belongs_to :venue, 'Hungry::Venue'
     
   end
 end
