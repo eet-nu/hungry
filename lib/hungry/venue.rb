@@ -54,5 +54,11 @@ module Hungry
                   
                   ### Utility:
                   :resources,  :counters, :created_at, :updated_at
+    
+    def geolocation=(new_coordinates)
+      @geolocation = Geolocation.parse(new_coordinates).tap do |geo|
+        attributes[:geolocation] = geo
+      end
+    end
   end
 end

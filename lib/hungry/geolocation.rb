@@ -59,5 +59,25 @@ module Hungry
     def to_s
       [latitude, longitude].join(',')
     end
+    
+    def [](key)
+      to_h.send(:[], key)
+    end
+    
+    def []=(key, value)
+      case key.to_sym
+      when :latitude
+        self.latitude  = value.to_f
+      when :longitude
+        self.longitude = value.to_f
+      end
+    end
+    
+    def to_h
+      {
+        latitude:  latitude,
+        longitude: longitude
+      }
+    end
   end
 end
