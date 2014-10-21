@@ -1,15 +1,7 @@
-if defined?(Motion::Project::Config)
-  Motion::Project::App.setup do |app|
-    Dir.glob(File.join(File.dirname(__FILE__), '**/*.rb')).each do |file|
-      app.files.unshift(file)
-    end
-  end
-else
-  $LOAD_PATH << File.expand_path('..', __FILE__)
+$LOAD_PATH << File.expand_path('..', __FILE__)
   
-  require 'support/presence'
-  require 'support/symbolize_keys'
-end
+require 'support/presence'
+require 'support/symbolize_keys'
 
 module Hungry
   VERSION = '0.0.1'
