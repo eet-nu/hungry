@@ -35,18 +35,32 @@ module Hungry
       self.class.new(klass, endpoint, criteria.merge(new_criteria))
     end
     
+    def first(n = 1)
+      if n == 1 && (value = results.first)
+        klass.new value
+      elsif n > 1
+        results.first(n).map do |result|
+          klass.new result
+        end
+      end
+    end
+    
     def count(*args)
       if args.present?
         super
       else
-        json['results'].count
+        results.count
       end
     end
     
     def each(&block)
-      json['results'].each do |result|
+      results.each do |result|
         yield klass.new(result)
       end
+    end
+    
+    def results
+      json['results']
     end
     
     private

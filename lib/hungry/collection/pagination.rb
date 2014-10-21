@@ -7,6 +7,18 @@ module Hungry
         all options.merge(page: page)
       end
       
+      def first(n = 1)
+        results = all(per_page: n, page: 1).results
+        
+        if n == 1 && (value = results.first)
+          klass.new results.first
+        elsif n > 1
+          results.first(n).map do |result|
+            klass.new result
+          end
+        end
+      end
+      
       def paginated?
         pagination.present?
       end

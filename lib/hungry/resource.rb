@@ -68,6 +68,10 @@ module Hungry
         end
       end
       
+      def first(n = 1)
+        collection.first(n)
+      end
+      
       def all(criteria = {})
         collection.all(criteria)
       end
