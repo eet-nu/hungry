@@ -7,7 +7,7 @@ module Hungry
   VERSION = '0.0.1'
   
   class << self
-    attr_accessor :api_url, :json_parser
+    attr_accessor :api_url, :json_parser, :logger
   end
   
   self.api_url     = 'http://api.eet.nu/'

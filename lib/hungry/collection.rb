@@ -60,6 +60,8 @@ module Hungry
       
       @response ||= begin
         uri = Util.uri_with_params(endpoint, criteria)
+        
+        Util.log "GET: #{uri}"
         self.class.get uri
       end
     end

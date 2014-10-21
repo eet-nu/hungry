@@ -57,7 +57,10 @@ module Hungry
       def find(id)
         raise NoEndpointSpecified unless endpoint
         
-        response = get "#{endpoint}/#{id}"
+        uri = "#{endpoint}/id"
+        
+        Util.log "GET: #{uri}"
+        response = get uri
         
         if response.code == 200
           attributes = Util.parse_json(response.body)

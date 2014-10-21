@@ -4,6 +4,13 @@ module Hungry
   module Util
     extend self
     
+    def log(message, type = :info)
+      if Hungry.logger
+        message = "[Hungry] #{message}"
+        Hungry.logger.send(type, message)
+      end
+    end
+    
     def parse_json(json)
       Hungry.json_parser.call(json)
     end
