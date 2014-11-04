@@ -32,6 +32,7 @@ module Hungry
   autoload :Country,     'hungry/country'
   autoload :Region,      'hungry/region'
   autoload :Review,      'hungry/review'
+  autoload :Response,    'hungry/response'
   autoload :Site,        'hungry/site'
   autoload :Tag,         'hungry/tag'
   autoload :Venue,       'hungry/venue'

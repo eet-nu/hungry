@@ -1,16 +1,14 @@
 module Hungry
-  class Review < Resource
+  class Response < Resource
     
     ### RESOURCES:
     
-    belongs_to :venue, 'Hungry::Venue'
-    
-    has_many :responses, 'Hungry::Response'
+    belongs_to :review, 'Hungry::Review'
     
     ### ATTRIBUTES:
     
                   ### Review:
-    attr_accessor :id, :body, :rating, :scores, :author,
+    attr_accessor :id, :body, :author,
                   
                   ### Utility:
                   :created_at, :updated_at
