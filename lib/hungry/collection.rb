@@ -41,7 +41,7 @@ module Hungry
     
     def first(n = 1)
       if n == 1 && (value = results.first)
-        build_resource result
+        build_resource value
       elsif n > 1
         results.first(n).map do |result|
           build_resource result
