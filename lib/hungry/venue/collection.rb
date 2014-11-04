@@ -20,6 +20,13 @@ module Hungry
         all tags: (current_tags + tags.flatten).compact.join(',')
       end
       
+      def maintainable_by(user_or_id)
+        user_id = user_or_id.to_s =~ /^[0-9]+$/ ?
+                    user_or_id.to_i : user_or_id.id
+        
+        all maintainer_id: user_id
+      end
+      
       def sort_by(subject)
         all sort_by: subject
       end

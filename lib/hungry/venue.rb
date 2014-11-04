@@ -36,6 +36,10 @@ module Hungry
       collection.sort_by(sortable)
     end
     
+    def self.maintainable_by(user_or_id)
+      collection.maintainable_by(user_or_id)
+    end
+    
     def self.paginate(page, options = {})
       collection.paginate(page, options)
     end
