@@ -33,8 +33,15 @@ module Hungry
     def self.has_many(resource, klass = 'Resource')
       define_method resource do
         klass = Kernel.const_get(klass) if klass.is_a?(String)
+        
         if url = resources[resource]
-          klass.collection.from_url(url)
+          collection = klass.collection.from_url(url)
+          
+          if attributes[resource].present?
+            collection.results = attributes[resource]
+          end
+          
+          collection
         end
       end
     end

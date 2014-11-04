@@ -64,7 +64,11 @@ module Hungry
     end
     
     def results
-      json['results']
+      @results ||= json['results']
+    end
+    
+    def results=(results)
+      @results = results
     end
     
     protected
