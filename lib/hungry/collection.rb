@@ -35,16 +35,16 @@ module Hungry
       self.class.new(klass, endpoint, criteria.merge(new_criteria))
     end
     
+    def [](index)
+      build_resource results[index]
+    end
+    
     def first(n = 1)
       if n == 1 && (value = results.first)
-        resource = klass.new value
-        resource.data_source = data_source
-        resource
+        build_resource result
       elsif n > 1
         results.first(n).map do |result|
-          resource = klass.new(result)
-          resource.data_source = data_source
-          resource
+          build_resource result
         end
       end
     end
@@ -59,10 +59,7 @@ module Hungry
     
     def each(&block)
       results.each do |result|
-        resource = klass.new(result)
-        resource.data_source = data_source
-        
-        yield resource
+        yield build_resource(result)
       end
     end
     
@@ -71,6 +68,12 @@ module Hungry
     end
     
     protected
+    
+    def build_resource(result)
+      resource = klass.new(result)
+      resource.data_source = data_source
+      resource
+    end
     
     def data_source
       Util.uri_with_params(endpoint, criteria)
