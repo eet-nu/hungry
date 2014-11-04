@@ -4,7 +4,7 @@ module Hungry
   class Resource
     include HTTParty
     
-    attr_accessor :attributes
+    attr_accessor :attributes, :data_source
     
     ### CLASS METHODS:
     
@@ -64,7 +64,9 @@ module Hungry
         
         if response.code == 200
           attributes = Util.parse_json(response.body)
-          new(attributes)
+          resource = new(attributes)
+          resource.data_source = uri
+          resource
         end
       end
       

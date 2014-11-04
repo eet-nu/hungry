@@ -37,10 +37,14 @@ module Hungry
     
     def first(n = 1)
       if n == 1 && (value = results.first)
-        klass.new value
+        resource = klass.new value
+        resource.data_source = data_source
+        resource
       elsif n > 1
         results.first(n).map do |result|
-          klass.new result
+          resource = klass.new(result)
+          resource.data_source = data_source
+          resource
         end
       end
     end
@@ -55,7 +59,10 @@ module Hungry
     
     def each(&block)
       results.each do |result|
-        yield klass.new(result)
+        resource = klass.new(result)
+        resource.data_source = data_source
+        
+        yield resource
       end
     end
     
@@ -63,7 +70,11 @@ module Hungry
       json['results']
     end
     
-    private
+    protected
+    
+    def data_source
+      Util.uri_with_params(endpoint, criteria)
+    end
     
     def json
       @json ||= Util.parse_json(response.body)
@@ -73,10 +84,8 @@ module Hungry
       raise NoEndpointSpecified unless endpoint
       
       @response ||= begin
-        uri = Util.uri_with_params(endpoint, criteria)
-        
-        Util.log "GET: #{uri}"
-        self.class.get uri
+        Util.log "GET: #{data_source}"
+        self.class.get data_source
       end
     end
   end

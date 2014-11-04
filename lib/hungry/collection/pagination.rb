@@ -8,13 +8,18 @@ module Hungry
       end
       
       def first(n = 1)
-        results = all(per_page: n, page: 1).results
+        scope   = all(per_page: n, page: 1)
+        results = scope.results
         
         if n == 1 && (value = results.first)
-          klass.new results.first
+          resource = klass.new results.first
+          resource.data_source = scope.data_source
+          resource
         elsif n > 1
           results.first(n).map do |result|
-            klass.new result
+            resource = klass.new result
+            resource.data_source = scope.data_source
+            resource
           end
         end
       end
