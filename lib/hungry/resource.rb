@@ -57,7 +57,7 @@ module Hungry
       def find(id)
         raise NoEndpointSpecified unless endpoint
         
-        uri = "#{endpoint}/id"
+        uri = "#{endpoint}/#{id}"
         
         Util.log "GET: #{uri}"
         response = get uri
