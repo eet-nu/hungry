@@ -62,5 +62,13 @@ module Hungry
         attributes[:geolocation] = geo
       end
     end
+    
+    def menus=(new_menus)
+      @menus = new_menus.map do |attributes|
+        menu = Menu.new(attributes)
+        menu.data_source = data_source
+        menu
+      end
+    end
   end
 end

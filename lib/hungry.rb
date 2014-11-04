@@ -30,6 +30,7 @@ module Hungry
   # Models:
   autoload :City,        'hungry/city'
   autoload :Country,     'hungry/country'
+  autoload :Menu,        'hungry/menu'
   autoload :Region,      'hungry/region'
   autoload :Review,      'hungry/review'
   autoload :Response,    'hungry/response'
