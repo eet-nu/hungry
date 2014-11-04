@@ -25,7 +25,7 @@ module Hungry
                   :url, :email, :support_email, :timezone, :country, :applications,
                   
                   ### Utility:
-                  :resources,  :counters
+                  :resources, :counters
     
     def hostname
       uri = URI.parse(url) rescue nil
