@@ -16,9 +16,16 @@ module Hungry
     def self.belongs_to(resource, klass = 'Resource')
       define_method resource do
         klass = Kernel.const_get(klass) if klass.is_a?(String)
-        if url = resources[resource]
+        
+        if attributes[resource].present?
+          resource = klass.new attributes[resource]
+          resource.data_source = data_source
+          resource
+        elsif url = resources[resource]
           attributes = self.class.get url
-          klass.new(attributes)
+          resource = klass.new attributes
+          resource.data_source = url
+          resource
         end
       end
     end
