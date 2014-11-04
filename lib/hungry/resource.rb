@@ -4,7 +4,7 @@ module Hungry
   class Resource
     include HTTParty
     
-    attr_accessor :attributes, :data_source
+    attr_accessor :attributes, :resources, :data_source
     
     ### CLASS METHODS:
     
@@ -35,6 +35,22 @@ module Hungry
         klass = Kernel.const_get(klass) if klass.is_a?(String)
         if url = resources[resource]
           klass.collection.from_url(url)
+        end
+      end
+    end
+    
+    def self.lazy_load(*attributes)
+      attributes.each do |attribute|
+        alias_method "#{attribute}_without_lazy_load".to_sym, attribute
+        define_method attribute do
+          result = send "#{attribute}_without_lazy_load".to_sym
+          
+          if !result.present? && (canonical_data_source != data_source && canonical_data_source.present?)
+            reload
+            send "#{attribute}_without_lazy_load".to_sym
+          else
+            result
+          end
         end
       end
     end
@@ -106,6 +122,17 @@ module Hungry
           send("#{key}=", value)
         end
       end
+    end
+    
+    def canonical_data_source
+      resources && resources[:self]
+    end
+    
+    def reload
+      resource = self.class.find id
+      self.data_source = resource.data_source
+      initialize(resource.attributes)
+      self
     end
   end
 end

@@ -53,7 +53,9 @@ module Hungry
                   :holidays,
                   
                   ### Utility:
-                  :resources,  :counters, :created_at, :updated_at
+                  :counters, :created_at, :updated_at
+    
+    lazy_load :tags, :menus, :maintainers, :opening_hours, :holidays
     
     def geolocation=(new_coordinates)
       @geolocation = Geolocation.parse(new_coordinates).tap do |geo|
