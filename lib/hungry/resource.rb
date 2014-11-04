@@ -15,33 +15,39 @@ module Hungry
     
     def self.belongs_to(resource, klass = 'Resource')
       define_method resource do
-        klass = Kernel.const_get(klass) if klass.is_a?(String)
-        
-        if attributes[resource].present?
-          resource = klass.new attributes[resource]
-          resource.data_source = data_source
-          resource
-        elsif url = resources[resource]
-          attributes = self.class.get url
-          resource = klass.new attributes
-          resource.data_source = url
-          resource
+        @belongs_to ||= {}
+        @belongs_to[resource] ||= begin
+          klass = Kernel.const_get(klass) if klass.is_a?(String)
+          
+          if attributes[resource].present?
+            resource = klass.new attributes[resource]
+            resource.data_source = data_source
+            resource
+          elsif url = resources[resource]
+            attributes = self.class.get url
+            resource = klass.new attributes
+            resource.data_source = url
+            resource
+          end
         end
       end
     end
     
     def self.has_many(resource, klass = 'Resource')
       define_method resource do
-        klass = Kernel.const_get(klass) if klass.is_a?(String)
-        
-        if url = resources[resource]
-          collection = klass.collection.from_url(url)
+        @has_many ||= {}
+        @has_many[resource] ||= begin
+          klass = Kernel.const_get(klass) if klass.is_a?(String)
           
-          if attributes[resource].present?
-            collection.results = attributes[resource]
+          if url = resources[resource]
+            collection = klass.collection.from_url(url)
+            
+            if attributes[resource].present?
+              collection.results = attributes[resource]
+            end
+            
+            collection
           end
-          
-          collection
         end
       end
     end
@@ -137,8 +143,13 @@ module Hungry
     
     def reload
       resource = self.class.find id
+      
       self.data_source = resource.data_source
-      initialize(resource.attributes)
+      initialize resource.attributes
+      
+      @has_many   = {}
+      @belongs_to = {}
+      
       self
     end
   end
