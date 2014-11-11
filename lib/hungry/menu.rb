@@ -23,6 +23,10 @@ module Hungry
     
     lazy_load :venue
     
+    def venue=(venue_attributes)
+      @venue = Hungry::Venue.new(venue_attributes)
+    end
+    
     def categories
       @categories ||= []
     end
