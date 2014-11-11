@@ -48,8 +48,8 @@ module Hungry
     
                   ### Preview:
     attr_accessor :id, :name, :category, :telephone, :fax, :website_url,
-                  :tagline, :rating, :url, :address, :geolocation, :relevance,
-                  :distance, :plan,
+                  :tagline, :rating, :url, :address, :geolocation, 
+                  :currency_symbol, :relevance, :distance, :plan,
                   
                   ### Full:
                   :reachability, :staff, :prices, :capacity, :description,
