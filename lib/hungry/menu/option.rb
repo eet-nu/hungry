@@ -1,6 +1,6 @@
 module Hungry
   class Menu
-    class Dish < Resource
+    class Option < Resource
       
       attr_accessor :description, :price, :dish
       
