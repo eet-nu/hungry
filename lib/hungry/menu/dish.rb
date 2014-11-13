@@ -9,7 +9,7 @@ module Hungry
       end
       
       def options=(new_options)
-        @dishes = new_options.map do |attributes|
+        @options = new_options.map do |attributes|
           option = Menu::Option.new(attributes)
           option.dish        = self
           option.data_source = data_source
