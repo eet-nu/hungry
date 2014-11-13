@@ -23,6 +23,14 @@ module Hungry
     
     lazy_load :venue
     
+    def managed?
+      type == 'managed'
+    end
+    
+    def download?
+      type == 'download'
+    end
+    
     def venue=(venue_attributes)
       @venue = Hungry::Venue.new(venue_attributes)
     end
