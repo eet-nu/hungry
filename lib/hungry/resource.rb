@@ -144,8 +144,13 @@ module Hungry
     def reload
       resource = self.class.find id
       
-      self.data_source = resource.data_source
-      initialize resource.attributes
+      if resource
+        self.data_source = resource.data_source
+        initialize resource.attributes
+      else
+        self.data_source = nil
+        initialize Hash[*attributes.keys.map { |key| [key, nil] }]
+      end
       
       @has_many   = {}
       @belongs_to = {}
