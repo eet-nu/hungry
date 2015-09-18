@@ -2,7 +2,7 @@ module Hungry
   class Menu
     class Category < Resource
       
-      attr_accessor :name, :dishes, :menu
+      attr_accessor :id, :name, :dishes, :menu
       
       def dishes
         @dishes ||= []
