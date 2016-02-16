@@ -57,7 +57,7 @@ module Hungry
                   :holidays,
                   
                   ### Utility:
-                  :counters, :created_at, :updated_at
+                  :counters, :created_at, :updated_at, :status
     
     lazy_load :tags, :menus, :maintainers, :opening_hours, :holidays
     
