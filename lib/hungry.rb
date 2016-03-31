@@ -10,7 +10,7 @@ module Hungry
     attr_accessor :api_url, :json_parser, :logger
   end
   
-  self.api_url     = 'http://api.eet.nu/'
+  self.api_url     = 'https://api.eet.nu/'
   self.json_parser = lambda do |json|
                        require 'json'
                        JSON.parse(json)
