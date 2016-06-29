@@ -13,4 +13,3 @@ task :console do
   ARGV.clear
   IRB.start
 end
-
