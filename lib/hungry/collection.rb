@@ -13,6 +13,7 @@ module Hungry
     
     def self.get(*args)
       self.base_uri Hungry.api_url
+      
       super
     end
     

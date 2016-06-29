@@ -7,14 +7,15 @@ module Hungry
   VERSION = '0.1.0'
   
   class << self
-    attr_accessor :api_url, :json_parser, :logger
+    attr_accessor :api_url, :credentials, :json_parser, :logger
   end
   
-  self.api_url     = 'https://api.eet.nu/'
-  self.json_parser = lambda do |json|
-                       require 'json'
-                       JSON.parse(json)
-                     end
+  def self.credentials=(new_credentials = {})
+    @credentials = new_credentials.symbolize_keys
+    
+    Resource.basic_auth   credentials[:username], credentials[:password]
+    Collection.basic_auth credentials[:username], credentials[:password]
+  end
   
   ### LIBRARY:
   
@@ -46,4 +47,13 @@ module Hungry
   
   # Exception raised when an endpoint is not specified for a resource:
   class EndpointNotSpecified < StandardError; end
+  
+  ### CONFIGURATION:
+  
+  self.credentials = { username: nil, password: nil }
+  self.api_url     = 'https://api.eet.nu/'
+  self.json_parser = lambda do |json|
+                       require 'json'
+                       JSON.parse(json)
+                     end
 end
