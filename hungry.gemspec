@@ -1,10 +1,7 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path('../lib', __FILE__)
-require 'hungry'
-
 Gem::Specification.new do |s|
   s.name        = 'hungry'
-  s.version     = Hungry::VERSION
+  s.version     = '0.1.1'
   s.authors     = ['Tom-Eric Gerritsen']
   s.email       = ['tomeric@eet.nu']
   s.homepage    = 'http://github.com/eet-nu/hungry'
