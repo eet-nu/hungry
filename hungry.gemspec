@@ -18,9 +18,4 @@ Gem::Specification.new do |s|
   
   # specify any dependencies here:
   s.add_dependency 'httparty'
-  
-  # specify any development dependencies here:
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec'
-  s.add_development_dependency 'fakeweb'
 end
