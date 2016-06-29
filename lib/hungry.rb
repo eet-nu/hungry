@@ -36,6 +36,7 @@ module Hungry
   autoload :Response,    'hungry/response'
   autoload :Site,        'hungry/site'
   autoload :Tag,         'hungry/tag'
+  autoload :User,        'hungry/user'
   autoload :Venue,       'hungry/venue'
   
   ### EXCEPTIONS:
