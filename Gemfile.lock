@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hungry (0.0.1)
+    hungry (0.1.1)
       httparty
 
 GEM
