@@ -4,7 +4,7 @@ require 'support/presence'
 require 'support/symbolize_keys'
 
 module Hungry
-  VERSION = '0.1.0'
+  VERSION = '0.1.1'
   
   class << self
     attr_accessor :api_url, :credentials, :json_parser, :logger
