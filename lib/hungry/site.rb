@@ -22,7 +22,8 @@ module Hungry
     
                   ### Preview:
     attr_accessor :id, :name, :title, :subtitle, :identifier, :default, :locale,
-                  :url, :email, :support_email, :timezone, :country, :applications,
+                  :url, :email, :support_email, :timezone, :country,
+                  :newsletter_list, :applications,
                   
                   ### Utility:
                   :resources, :counters
