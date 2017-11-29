@@ -13,7 +13,7 @@ module Hungry
     ### ATTRIBUTES:
     
                   ### Menu:
-    attr_accessor :id, :name, :type, :attachment,
+    attr_accessor :id, :name, :type, :attachment, :pages,
                   
                   ### Associations:
                   :categories, :venue,
