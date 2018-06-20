@@ -150,7 +150,7 @@ module Hungry
         initialize resource.attributes
       else
         self.data_source = nil
-        initialize Hash[*attributes.keys.map { |key| [key, nil] }]
+        initialize Hash[attributes.keys.map { |key| [key, nil] }]
       end
       
       @has_many   = {}
