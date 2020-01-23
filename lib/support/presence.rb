@@ -9,7 +9,7 @@ rescue LoadError => e
         !!presence
       end
     end
-    
+
     unless respond_to?(:presence)
       def presence
         return nil if respond_to?(:empty?) ? empty? : !self
