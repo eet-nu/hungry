@@ -32,6 +32,20 @@ module Hungry
           end
         end
       end
+
+      define_method "#{resource}=" do |object_or_attributes|
+        @belongs_to ||= {}
+
+        klass = Kernel.const_get(klass) if klass.is_a?(String)
+
+        if object_or_attributes.is_a?(klass)
+          @belongs_to[resource] = object_or_attributes
+        else
+          @belongs_to[resource] = klass.new object_or_attributes
+        end
+
+        @belongs_to[resource]
+      end
     end
 
     def self.has_many(resource, klass = 'Resource')
