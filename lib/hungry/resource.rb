@@ -40,8 +40,10 @@ module Hungry
 
         if object_or_attributes.is_a?(klass)
           @belongs_to[resource] = object_or_attributes
-        else
+        elsif object_or_attributes.present?
           @belongs_to[resource] = klass.new object_or_attributes
+        else
+          @belongs_to[resource] = nil
         end
 
         @belongs_to[resource]
