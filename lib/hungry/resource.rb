@@ -14,17 +14,17 @@ module Hungry
       super
     end
 
-    def self.belongs_to(resource, klass = 'Resource')
-      define_method resource do
+    def self.belongs_to(association, klass = 'Resource')
+      define_method association do
         @belongs_to ||= {}
-        @belongs_to[resource] ||= begin
+        @belongs_to[association] ||= begin
           klass = Kernel.const_get(klass) if klass.is_a?(String)
 
-          if attributes[resource].present?
-            resource = klass.new attributes[resource]
+          if attributes[association].present?
+            resource = klass.new attributes[association]
             resource.data_source = data_source
             resource
-          elsif url = resources[resource]
+          elsif url = resources[association]
             attributes = self.class.get url
             resource = klass.new attributes
             resource.data_source = url
@@ -33,33 +33,33 @@ module Hungry
         end
       end
 
-      define_method "#{resource}=" do |object_or_attributes|
+      define_method "#{association}=" do |object_or_attributes|
         @belongs_to ||= {}
 
         klass = Kernel.const_get(klass) if klass.is_a?(String)
 
         if object_or_attributes.is_a?(klass)
-          @belongs_to[resource] = object_or_attributes
+          @belongs_to[association] = object_or_attributes
         elsif object_or_attributes.present?
-          @belongs_to[resource] = klass.new object_or_attributes
+          self.attributes.merge!(association => object_or_attributes)
         else
-          @belongs_to[resource] = nil
+          @belongs_to[association] = nil
         end
 
-        @belongs_to[resource]
+        @belongs_to[association]
       end
     end
 
-    def self.has_many(resource, klass = 'Resource')
-      define_method resource do
+    def self.has_many(association, klass = 'Resource')
+      define_method association do
         @has_many ||= {}
-        @has_many[resource] ||= begin
+        @has_many[association] ||= begin
           klass = Kernel.const_get(klass) if klass.is_a?(String)
 
-          if url = resources[resource]
+          if url = resources[association]
             collection = klass.collection.from_url(url)
 
-            if attributes[resource].present?
+            if attributes[association].present?
               collection.results = attributes[resource]
             end
 
