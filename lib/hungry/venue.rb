@@ -49,7 +49,7 @@ module Hungry
                   ### Preview:
     attr_accessor :id, :name, :category, :telephone, :fax, :website_url,
                   :tagline, :rating, :url, :address, :geolocation,
-                  :currency_symbol, :relevance, :distance, :plan,
+                  :currency_symbol, :relevance, :distance, :plan, :mobile,
 
                   ### Full:
                   :reachability, :staff, :prices, :capacity, :description,
