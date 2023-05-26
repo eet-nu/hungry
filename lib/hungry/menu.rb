@@ -24,7 +24,7 @@ module Hungry
     lazy_load :venue
 
     def managed?
-      type == 'managed' || categories.present?
+      type == 'managed' || (!download? && categories.present?)
     end
 
     def download?
