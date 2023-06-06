@@ -4,7 +4,7 @@ rvm:
   - "2.5.0"
 
 before_install:
-  - gem install bundler:2.2.29
+  - gem install bundler:2.3.24
 
 install:
   - "bundle install --jobs=3 --retry=3"
