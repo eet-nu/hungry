@@ -73,5 +73,11 @@ module Hungry
                   ### Utility:
                   :resources, :counters, :created_at, :updated_at, :activated_at
 
+    %w[created_at updated_at birth_date activated_at].each do |method|
+      define_method("#{method}=") do |new_value|
+        parsed_value = new_value.present? ? Time.parse(new_value) : nil
+        instance_variable_set("@#{method}", parsed_value)
+      end
+    end
   end
 end
